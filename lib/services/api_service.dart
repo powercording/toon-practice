@@ -19,8 +19,7 @@ class ApiService {
 
       List<WebtoonModel> webtoonModels = [];
       for (var webtoon in webtoons) {
-        final webtoonModel = WebtoonModel.fromJson(webtoon);
-        webtoonModels.add(webtoonModel);
+        webtoonModels.add(WebtoonModel.fromJson(webtoon));
       }
       return webtoonModels;
     }
@@ -47,8 +46,7 @@ class ApiService {
 
       List<WebtoonEpisodeModel> episodeModels = [];
       for (var episode in episodes) {
-        final episodeModel = WebtoonEpisodeModel.fromJson(episode);
-        episodeModels.add(episodeModel);
+        episodeModels.add(WebtoonEpisodeModel.fromJson(episode));
       }
       return episodeModels;
     }
