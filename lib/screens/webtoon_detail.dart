@@ -4,19 +4,19 @@ import 'package:toon/models/webtoon_episode_model.dart';
 import 'package:toon/models/webtoon_model.dart';
 import 'package:toon/services/api_service.dart';
 import 'package:toon/widgets/episode.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 class WebtoonDetailScreen extends StatelessWidget {
   final String title, thumb, id;
-  final Future<WebtoonDetailModel> webtoonDetail;
-  final Future<List<WebtoonEpisodeModel>> webtoonEpisode;
+
+  late final Future<WebtoonDetailModel> webtoonDetail =
+      ApiService.getDetailById(id);
+  late final Future<List<WebtoonEpisodeModel>> webtoonEpisode =
+      ApiService.getEpisodesById(id);
 
   WebtoonDetailScreen.fromJson(WebtoonModel model, {Key? key})
       : title = model.title,
         thumb = model.thumb,
         id = model.id,
-        webtoonDetail = ApiService.getDetailById(model.id),
-        webtoonEpisode = ApiService.getEpisodesById(model.id),
         super(key: key);
 
   @override
